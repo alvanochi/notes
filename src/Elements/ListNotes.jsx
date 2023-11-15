@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ListNotes = ({ item, onDeleteItem, onToggleCheck }) => {
+const ListNotes = ({ item, onDeleteItem, onToggleArchived }) => {
   return (
     <>
       <li key={item.id}>
@@ -8,8 +8,8 @@ const ListNotes = ({ item, onDeleteItem, onToggleCheck }) => {
           <input
             type="checkbox"
             className="hidden"
-            checked={item.checked}
-            onChange={() => onToggleCheck(item.id)}
+            checked={item.archived}
+            onChange={() => onToggleArchived(item.id)}
           />
           <span className="checkmark"></span>
         </label>
@@ -17,7 +17,7 @@ const ListNotes = ({ item, onDeleteItem, onToggleCheck }) => {
           <Link to={`/notes/${item.id}`}>
             <span
               className="font-Poppins"
-              style={item.checked ? { textDecoration: "line-through" } : {}}
+              style={item.archived ? { textDecoration: "line-through" } : {}}
             >
               {item.title.substring(0, 30)}
             </span>

@@ -17,7 +17,10 @@ const DetailNotes = () => {
           {item.title}
         </h1>
         <p className="mx-4 mt-4 text-base break-words font-Poppins">
-          {item.note}
+          {item.body}
+        </p>
+        <p className="mx-4 mt-12 text-base break-words text-end font-Poppins">
+          {item.createdAt}
         </p>
       </div>
     </div>

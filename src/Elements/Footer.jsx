@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNotesContext } from "../Hooks/DataNotesContext";
 
 const Footer = () => {
-  const [sortBy, setSortBy] = useState("All");
+  const [sortBy, setSortBy] = useState("Active");
   const { setFilter } = useNotesContext();
 
   const handleSort = (sortType) => {
@@ -11,7 +11,23 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex justify-center gap-8 mt-6 items-center">
+    <div className="flex items-center justify-center gap-8 mt-6">
+      <button
+        onClick={() => handleSort("Active")}
+        className={`font-Poppins text-base ${
+          sortBy === "Active" ? "text-orange-400" : ""
+        }`}
+      >
+        Active
+      </button>
+      <button
+        onClick={() => handleSort("Archived")}
+        className={`font-Poppins text-base ${
+          sortBy === "Archived" ? "text-orange-400" : ""
+        }`}
+      >
+        Archived
+      </button>
       <button
         onClick={() => handleSort("All")}
         className={`font-Poppins text-base ${
@@ -19,22 +35,6 @@ const Footer = () => {
         }`}
       >
         All
-      </button>
-      <button
-        onClick={() => handleSort("Completed")}
-        className={`font-Poppins text-base ${
-          sortBy === "Completed" ? "text-orange-400" : ""
-        }`}
-      >
-        Completed
-      </button>
-      <button
-        onClick={() => handleSort("Pending")}
-        className={`font-Poppins text-base ${
-          sortBy === "Pending" ? "text-orange-400" : ""
-        }`}
-      >
-        Pending
       </button>
     </div>
   );

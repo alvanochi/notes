@@ -10,10 +10,10 @@ export default function App() {
     updateData(items.filter((item) => item.id !== id));
   };
 
-  const handleToggleCheck = (id) => {
+  const handleToggleArchived = (id) => {
     updateData((items) =>
       items.map((item) =>
-        item.id === id ? { ...item, checked: !item.checked } : item
+        item.id === id ? { ...item, archived: !item.archived } : item
       )
     );
   };
@@ -24,7 +24,7 @@ export default function App() {
         <Header />
         <ShowNotes
           onDeleteItem={handleDeleteItem}
-          onToggleCheck={handleToggleCheck}
+          onToggleArchived={handleToggleArchived}
         />
         <Footer />
       </div>
