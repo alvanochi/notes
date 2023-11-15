@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useNotesContext } from "../Hooks/DataNotesContext";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./404";
 
 const DetailNotes = () => {
   const { items } = useNotesContext();
