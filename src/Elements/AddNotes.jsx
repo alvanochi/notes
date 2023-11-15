@@ -27,19 +27,34 @@ const AddNotes = ({ onAddNotes }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const currentDate = new Date();
+    setCreatedAt(currentDate);
+
     if (!title || title.trim() === "") return;
     const newItem = {
       id: Date.now(),
       title,
       archived,
       body,
-      createdAt: new Date().toISOString(),
+      createdAt: showFormattedDate(currentDate),
     };
+
+    console.log(newItem);
     onAddNotes(newItem);
     setTitle("");
     setBody("");
     setCreatedAt(null);
     setArchived(false);
+  };
+
+  const showFormattedDate = (date) => {
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return new Date(date).toLocaleDateString("id-ID", options);
   };
 
   return (
