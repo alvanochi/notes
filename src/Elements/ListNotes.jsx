@@ -19,7 +19,7 @@ const ListNotes = ({ item, onDeleteItem, onToggleArchived }) => {
               className="font-Poppins"
               style={item.archived ? { textDecoration: "line-through" } : {}}
             >
-              {item.title.substring(0, 30)}
+              {item.title.substring(0, 23)}
             </span>
           </Link>
           <button

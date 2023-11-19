@@ -33,7 +33,7 @@ const AddNotes = ({ onAddNotes }) => {
     if (!title || title.trim() === "") return;
     const newItem = {
       id: Date.now(),
-      title,
+      title: title.substring(0, 50),
       archived,
       body,
       createdAt: showFormattedDate(currentDate),

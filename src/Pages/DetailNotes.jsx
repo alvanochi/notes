@@ -25,8 +25,8 @@ const DetailNotes = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="w-2/5 h-64 border border-orange-400 rounded-md">
-        <h1 className="mx-4 mt-4 text-xl font-semibold font-Poppins">
+      <div className="max-w-[350px] md:max-w-[500px] max-h-[500px] overflow-auto border border-orange-400 rounded-md">
+        <h1 className="mx-4 mt-4 text-xl font-semibold break-words font-Poppins">
           {item.title}
         </h1>
         <p className="mx-4 mt-4 text-base break-words font-Poppins">

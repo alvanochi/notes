@@ -2,8 +2,22 @@ import AddNotes from "../Elements/AddNotes";
 import ListNotes from "../Elements/ListNotes";
 import { useNotesContext } from "../Hooks/DataNotesContext";
 
-const ShowNotes = ({ onDeleteItem, onToggleArchived }) => {
+const ShowNotes = () => {
   const { items, updateData } = useNotesContext();
+
+  const handleDeleteItem = (id) => {
+    updateData(items.filter((item) => item.id !== id));
+    console.log(items);
+  };
+
+  const handleToggleArchived = (id) => {
+    updateData((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, archived: !item.archived } : item
+      )
+    );
+  };
+
   const handleAddNotes = (item) => {
     if (items.find((i) => i.title === item.title)) {
       const updateItems = items.map((i) => {
@@ -29,8 +43,8 @@ const ShowNotes = ({ onDeleteItem, onToggleArchived }) => {
               <ListNotes
                 key={item.id}
                 item={item}
-                onDeleteItem={onDeleteItem}
-                onToggleArchived={onToggleArchived}
+                onDeleteItem={handleDeleteItem}
+                onToggleArchived={handleToggleArchived}
               />
             ))
           )}
