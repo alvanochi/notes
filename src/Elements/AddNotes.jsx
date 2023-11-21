@@ -39,8 +39,8 @@ const AddNotes = ({ onAddNotes }) => {
       createdAt: showFormattedDate(currentDate),
     };
 
-    console.log(newItem);
     onAddNotes(newItem);
+
     setTitle("");
     setBody("");
     setCreatedAt(null);

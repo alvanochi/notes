@@ -3,12 +3,7 @@ import ListNotes from "../Elements/ListNotes";
 import { useNotesContext } from "../Hooks/DataNotesContext";
 
 const ShowNotes = () => {
-  const { items, updateData } = useNotesContext();
-
-  const handleDeleteItem = (id) => {
-    updateData(items.filter((item) => item.id !== id));
-    console.log(items);
-  };
+  const { items, updateData, handleDeleteItem } = useNotesContext();
 
   const handleToggleArchived = (id) => {
     updateData((items) =>

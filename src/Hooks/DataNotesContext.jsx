@@ -68,9 +68,19 @@ export default function AllNotesContextProvider({ children }) {
     setItems(newData);
   };
 
+  const handleDeleteItem = (id) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    updateData(updatedItems);
+  };
+
   return (
     <AllNotes.Provider
-      value={{ items: filteredItems, setFilter: setFilterType, updateData }}
+      value={{
+        items: filteredItems,
+        setFilter: setFilterType,
+        updateData,
+        handleDeleteItem,
+      }}
     >
       {children}
     </AllNotes.Provider>
